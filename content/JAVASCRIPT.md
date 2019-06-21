@@ -185,6 +185,8 @@ peter.name;
 
 **this** ist an den aktuell gültigen Bereich gebunden.
 
+this wird von der inneren function mit eigenem this überschrieben in diesem Kontext
+
 ```JavaScript
 function test() {
     this.name = 'Alfred';
