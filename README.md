@@ -19,4 +19,4 @@ npm i -g @angular/cli
 * [REST](./content/REST.md)
 * [Nest.js](./content/NESTJS.md)
 * [Angular](./content/ANGULAR.md)
-* [Todo-App](./web2-todo/README.md)
+* [Todo-App](./todo-app/)
