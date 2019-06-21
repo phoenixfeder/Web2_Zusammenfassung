@@ -43,12 +43,12 @@ Eselsbrücke:
 ]
 ```
 
-## Template Strings
+## Strings
 
 ```JavaScript
     "x" 
     'x’
-    `x ${expression}` //expression wird in String geschrieben
+    `x ${expression}` // Template literals, expression wird in String geschrieben
 ```
 
 ## Property Access Expression (Elements)
