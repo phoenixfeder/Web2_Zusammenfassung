@@ -17,5 +17,5 @@ npm i -g @angular/cli
 * [TypeScript](./content/TYPESCRIPT.md)
 * [npm](./content/NPM.md)
 * [REST](./content/REST.md)
-* NestJS
+* [Nest.js](./content/NESTJS.md)
 * Angular
