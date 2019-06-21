@@ -6,6 +6,12 @@
 * Commandline interface für schnelleres erstellen von modulen/services etc.
 * Angulars Architektur ähnlich (controllers, pipes, etc)
 
+Ich vermute von den folgenden Kapitel sind für die Prüfung nur wichtig zu wissen:
+* Controller
+* Service
+* Module
+* (ohne Gewehr! peng)
+
 ## Controller
 
 [Zur Doku](https://docs.nestjs.com/controllers)
@@ -28,12 +34,12 @@ In diesem Beispiel gilt er für GET: localhost:3000/cats
 * @Get('/langhaar') gilt in diesem Beispiel dann für GET localhost:3000/cats/langhaar
 * @Get('/:typ') gilt für localhost:3000/cats/*variablerwert*
 * Um so einen variablen Wert in der funktion zu verwenden:
-    ```TypeScript
-        @Get('/:typ')
-        findAll(@Param('typ') typ: string): string {
-            console.log(typ);
-        }
-    ```
+```TypeScript
+    @Get('/:typ')
+    findAll(@Param('typ') typ: string): string {
+        console.log(typ);
+    }
+```
 * Es gibt neben @Param() noch @Body() für werte aus dem request-body und @Req() für das gesamte request-objekt
 
 ## Providers
@@ -118,35 +124,64 @@ In diesem Beispiel gilt er für GET: localhost:3000/cats
 * Serverseitige verarbeitung
 * Validierung von request
 * vorgefertigte wie bei
-    ```TypeScript
-        // Im Controller
-        @Post()
-        speicherKatze(@Body(new ValidationPipe()) createCatDto: CreateCatDto): void {
-            //wirft Fehler sobald eine der angaben in dem Objekt nicht konform sind
-        }
-        
+```TypeScript
+    // Im Controller
+    @Post()
+    speicherKatze(@Body(new ValidationPipe()) createCatDto: CreateCatDto): void {
+        //wirft Fehler sobald eine der angaben in dem Objekt nicht konform sind
+    }
+    
 
-        // In der CreateCatDto-Klasse:
-        export class CreateCatDto {
-            @IsString()
-            readonly name: string;
+    // In der CreateCatDto-Klasse:
+    export class CreateCatDto {
+        @IsString()
+        readonly name: string;
 
-            @IsInt()
-            readonly age: number;
+        @IsInt()
+        readonly age: number;
 
-            @IsString()
-            readonly breed: string;
-        }
-    ```
+        @IsString()
+        readonly breed: string;
+    }
+```
 * eigene Pipe-Klassen brauchen eine transform() methode, welche value und metadata (optional) übergeben werden:
-    ```TypeScript
-        transform(value: any) {
-            value = value.toUpperCase();
-            if (!this.isBreedValid(value)) {
-                throw new BadRequestException(`"${value}" is an invalid catbreed`);
-            }
-            return value;
+```TypeScript
+    transform(value: any) {
+        value = value.toUpperCase();
+        if (!this.isBreedValid(value)) {
+            throw new BadRequestException(`"${value}" is an invalid catbreed`);
         }
-    ```
+        return value;
+    }
+```
 
-## 
+## Guards
+
+[Zur Doku](https://docs.nestjs.com/guards)
+
+## Interceptors
+
+[Zur Doku](https://docs.nestjs.com/interceptors)
+
+## Decorators
+
+[Zur Doku](https://docs.nestjs.com/custom-decorators)
+
+* die @dekorator zieht sich über nestjs und werden massiv eingesetzt
+* eigene Dekorator können geschrieben werden:
+
+```TypeScript
+// Eigener Decorator um einen User aus dem Request-Objekt zu extrahieren
+export const User = createParamDecorator((data, req) => {
+    return req.user;
+});
+
+
+// Kann dann so verwendet werden um dies nicht jedes mal von Hand zu machen
+@Get()
+async findOne(@User() user: UserEntity) {
+  console.log(user);
+}
+```
+
+# Weiteres
