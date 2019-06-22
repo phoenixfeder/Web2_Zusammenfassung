@@ -1,0 +1,6 @@
+<label>
+  <input type="checkbox" [checked]="todo.done" (change)="toggleDone()">
+  {{ todo.title | done: todo.done }}
+  <button *ngIf="todo.done" (click)="delete()">Delete</button>
+</label>
+

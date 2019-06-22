@@ -1,8 +1,8 @@
-# npm
+# NodeJS
 
 ## Infos
 
-* Server-Seitig runtime Plattform für JavaScript Applications
+* Server-Seitige Runtime Plattform für JavaScript Applications
 * Performant (event-gesteuert)
 * Basiert auf Googles JavaScript engine V8
 * Kann Native Interfaces ansprechen (filesystem, geräte)
@@ -14,12 +14,13 @@
 
 => API
 
-## npm Package Manager
+## npm (Node Package Manager)
 
 * dependency hinzufügen (package.json):
 
-    npm install --save *package-name* (für dependencies)
-    npm install --save-dev *package-name* (für devDependencies)
+    * npm install --save *package-name* (für dependencies)
+    * npm install --save-dev *package-name* (für devDependencies)
+    * npx cowsay Muh! (führt command aus und fügt es, falls noch nicht vorhanden, den dependencies hinzu)
 
 * Dependency Typen
 

@@ -15,7 +15,8 @@ npm i -g @angular/cli
 
 * [JavaScript](./content/JAVASCRIPT.md)
 * [TypeScript](./content/TYPESCRIPT.md)
-* [npm](./content/NPM.md)
+* [NodeJS](./content/NODE.md)
 * [REST](./content/REST.md)
 * [Nest.js](./content/NESTJS.md)
-* Angular
+* [Angular](./content/ANGULAR.md)
+* [Todo-App](./todo-app/)

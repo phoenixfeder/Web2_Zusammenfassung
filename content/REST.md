@@ -41,6 +41,9 @@ localhost:8080 wirft Hallo Welt aus
 
 ## HTTP Verbs
 
+* idempotent(i.e. can be called several times without different outcomes)
+* safe (i.e. don’t modify resources)
+
 |Verb|Aktion|Idempotent|Safe|
 |----|------|----------|----|
 |GET|readonly zugriff|&#10003;|&#10003;|
