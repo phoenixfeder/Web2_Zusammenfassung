@@ -26,7 +26,7 @@ Importiere deathList.postman_collection.json ins Postman
 
 * Get:
 
-  GET localhost:3000/{id}
+  GET localhost:3000/0
 
 * Add:
 
@@ -47,11 +47,12 @@ Importiere deathList.postman_collection.json ins Postman
   BODY:
   ```JSON
   {
-    "id": {id},
+    "id": 0,
     "isDeath": true
   }
   ```
 
 * Delete:
 
-  DELETE localhost:3000/{id}
+  DELETE localhost:3000/0
+  
