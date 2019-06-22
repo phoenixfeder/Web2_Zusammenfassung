@@ -59,7 +59,7 @@ const { jahr } = merlot;
 ```
 
 ### d)
-Definieren Sie kurz den Begriff “Funktion höherer Ordnung” und demonstrieren Sie diesen in gültigem JavaScript anhand der Auflistung aus Aufgabenteil a) (2 Punkte).
+Definieren Sie kurz den Begriff "Funktion höherer Ordnung" und demonstrieren Sie diesen in gültigem JavaScript anhand der Auflistung aus Aufgabenteil a) (2 Punkte).
 
 Höherer Ordnung bedeutet, dass Funktionen auch nur Objekte sind und dadurch folgendes möglich ist:
 * Funktion hat eine Funktion als Wiedergabewert
@@ -82,15 +82,15 @@ Bitte geben Sie an, ob die unten genannten Aussagen wahr oder falsch sind. Für 
 | In JavaScript wird grundsätzlich zwischen Fließkomma- und Ganzzahlwerten unterschieden.                     |      | ✅      |
 | NaN (not a number) is truthy.                                                                               |      | ✅      |
 | Die Abstract Equality erkennt zwei Werte als gleich an, auch wenn sich ihr Typ unterscheidet.               | ✅    |        |
-| “this” trägt in “Fat Arrow”-Funktionen die Bedeutung des umschließenden Kontextes.                          | ✅    |        |
-| Einer “const”-Variable zugewiesene Arrays oder Objekte werden unveränderlich (immutable).                   |      | ✅      |
-| Mit den Schlüsselwörtern “let” und “const” deklarierte Variablen sind nur innerhalb des Block-Scope gültig. | ✅    |        |
-| “undefined” ist ein gültiges Schlüsselwort in JavaScript.                                                   |      | ✅      |
-| Eine Konsolenausgabe lässt sich mit der Methode “console.log” erzeugen.                                     | ✅    |        |
-| Fehler können mithilfe des Schlüsselwortes “throw” geworfen werden.                                         | ✅    |        |
+| "this" trägt in "Fat Arrow"-Funktionen die Bedeutung des umschließenden Kontextes.                          | ✅    |        |
+| Einer "const"-Variable zugewiesene Arrays oder Objekte werden unveränderlich (immutable).                   |      | ✅      |
+| Mit den Schlüsselwörtern "let" und "const" deklarierte Variablen sind nur innerhalb des Block-Scope gültig. | ✅    |        |
+| "undefined" ist ein gültiges Schlüsselwort in JavaScript.                                                   |      | ✅      |
+| Eine Konsolenausgabe lässt sich mit der Methode "console.log" erzeugen.                                     | ✅    |        |
+| Fehler können mithilfe des Schlüsselwortes "throw" geworfen werden.                                         | ✅    |        |
 
 ### b)
-Geben Sie bitte in gültigem JavaScript an: Eine Klasse “Person” mit der Methode “walk” und eine Klasse “Weinkenner” mit der Methode “taste”, die von der ersten Klasse erbt. (3 Punkte).
+Geben Sie bitte in gültigem JavaScript an: Eine Klasse "Person" mit der Methode "walk" und eine Klasse "Weinkenner" mit der Methode "taste", die von der ersten Klasse erbt. (3 Punkte).
 
 ```TypeScript
 class Person {
@@ -118,11 +118,11 @@ allrounder.taste(); // 🍷
 Nachstehend finden Sie eine Promise. Bitte definieren Sie diesen Begriff kurz und geben Sie an, welche Ausgaben bei Ausführung des nachstehenden Ausdrucks in der Konsole angezeigt werden (3 Punkte). 
 
 ```TypeScript
-Promise.reject(‘boom’)
+Promise.reject('boom')
   .then(value => console.log(value)) // Übersprungen da rejected
   .catch(err => console.log(`error: ${err}`)) // Hier beruhigt er sich wieder
-  .then(value => console.log(‘finalizing…’))
-  .finally(() => console.log(‘done!’)); 
+  .then(value => console.log('finalizing…'))
+  .finally(() => console.log('done!')); 
 ```
 
 Definition: Bei einen Promise handelt es sich um ein asynchrones Objekt, welches ein Versprechen darstellt, welches im späteren Verlauf resolved (alles in Ordnung) oder rejected (Fehler) werden kann. Ein Promise wird ausgeführt, sobald die dazugehörige Stelle im Code erreicht wird (Eager).
@@ -143,15 +143,15 @@ Bitte kreuzen Sie an, welche der nach folgenden HTTP-Verben idempotent sind (2,5
 
 | Verb    | Safe | Idempotent |
 | ------- | ---- | ---------- |
-| GET     | ✅    |            |
+| GET     | ✅    |  ✅          |
 | PUT     |      | ✅          |
-| POST    |      | ✅          |
+| POST    |      |           |
 | DELETE  |      | ✅          |
-| OPTIONS | ✅    |            |
-| HEAD    | ✅    |            |
+| OPTIONS | ✅    | ✅           |
+| HEAD    | ✅    | ✅           |
 
 ### b)
-Implementieren Sie mithilfe des Frameworks NestJS (ursprg. “Restify”) unter Node.js eine RESTful API,die folgende Operationen unterstützt:
+Implementieren Sie mithilfe des Frameworks NestJS (ursprg. "Restify") unter Node.js eine RESTful API,die folgende Operationen unterstützt:
 
 1. Abrufen aller bekannten Weine aus Ihrer Weinsammlung
 2. Abrufen eines einzelnen Weines anhand eines eindeutigen Bezeichners
@@ -267,17 +267,202 @@ export class WeinController {
 Authentifizierung/Autorisierung (10 Punkte)
 
 ### a)
-Definieren Sie den Begriff “Authentifizierung” (1 Punkt).
+Definieren Sie den Begriff "Authentifizierung" (1 Punkt).
 
 AuthN:
 * Ist der Benutzer derjenige der er behauptet zu sein?
 * => Kennzeichnet Identität des Benutzers!
 
 ### b)
-Definieren Sie den Begriff “Autorisierung” (1 Punkt).
+Definieren Sie den Begriff "Autorisierung" (1 Punkt).
 
 AuthZ:
 * Ist der Benutzer berechtigt zu tun, was er tun möchte?
 * => Kennzeichnet die Berechtigungen eines Benutzers für bestimmte Aktionen!
 
 ### c)
+Nennen Sie jeweils einen Anwendungstyp, der sich für die Verwendung mit den nachfolgenden OAuth-2.0-Flows eignet (4 Punkte):
+
+| Flow                                      | Anwendungsbeispiel                                                             |
+| ----------------------------------------- | ------------------------------------------------------------------------------ |
+| Resource Owner Password Credentials Grant | Wenn dem Client vollständig vertraut wird (Überreichen von Name und Passwort!) |
+| Authorization Code Grant                  | Serverseitig ausgeführte WebApp                                                |
+| Client Credentials Grant                  | Server-zu-Server Authentifizierung                                             |
+| Implicit Grant                            | Clientseitig ausgeführte WebApp (SPA)                                          |
+### d)
+```JSON
+{
+  "username": "alice@example.com",
+  "password": "passwort123",
+  "audience": "https://example.com/api",
+  "scope": "read:wine-collection",
+  "client_id": "my-wine-guide",
+  "client_secret": "geheim"
+}
+```
+=> Resource Owner Password Credentials Grant Flow, da Fluss von Passwort und Username.
+
+### e)
+Ist der in Aufgabenteil d)gezeigte OAuth-2.0-Flow zur Verwendung in clientseitig ausgeführten Webanwendungen empfehlenswert? Bitte begründen Sie Ihre Antwort kurz. (1,5 Punkte)
+
+Nein, da hier das Passwort und der Nutzername nicht durch die Anwendung geheim gehalten werden kann. Sprich eine Anwendung, die sich unter der gleichen client-id und secret ausgibt könnte die hier gesendeten Daten abfangen.
+
+### f)
+In einer Textdatei entdecken Sie die nachfolgende Zeichenkette, deren Aufbau Sie aus der Vorlesung kennen. Worum handelt es sich hierbei? (0,5 Punkte) 
+
+`eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJIYWxsbyI6IldpciBob2ZmZW4sIGxlcm5lbiBnZWh0IGd1dCIsIldpZXNvIjoiTWFjaHN0IGR1IGRpciBkZW4gQXVmd2FuZCwgZGVuIEpXVCB6dSBkZWtvZGllcmVuPyEiLCJTY2jDtm4iOiJEYXNzIGVzIGRpY2ggc28gYnJlbm5lbmQgaW50ZXJlc3NpZXJ0IiwiU2Now7ZuZW4iOiJHcnXDnyEifQ.fqNbMCEs_LVlUnMOpxqfHgMLi3f2k0LdswYUFo9a3ww`
+
+=> JWT: JSON Web Token
+
+### g)
+Bitte nennen Sie in Stichpunkten, in welche Bestandteile Sie die Zeichenkette aus Aufgabenteil f) zerlegen können. 
+
+Jeweils getrennt durch die Punkte!
+1. Header
+2. Payload
+3. Signature
+
+## Aufgabe 5
+SPA & Angular-Templates (10 Punkte) 
+
+### a)
+Nennen Sie einen Vorteil und einen Nachteil von Single- Page Web Applications (2 Punkte). 
+
+* Vorteil: Performance, da alles beim Client ausgeführt werden kann und so einfache Logik nicht mehr über den Server erfolgt.
+* Nachteil: Fat-Applications! Sprich beim initialen Aufruf der SPA müssen sehr viele Daten geladen werden, da zum Beispiel die Seiten nicht auf Serverseite navigiert werden.
+
+### b)
+b)	Nachstehend sehen Sie die Implementierung einer Komponentenklasse. Bitte zeigen Sie, wie der Name des dort definierten Weines im zugehörigen HTML-Template eingefügt werden kann. Bitte benennen Sie das Konstrukt (2 Punkte). 
+
+`wine.component.ts`:
+```TypeScript
+@Component({ 
+  selector: 'app-wine', 
+  template: './wine-component.html' 
+}) 
+export class WineComponent { 
+  public wine = { name: 'Grauburgunder' }; 
+} 
+```
+`wine.component.html`:
+```HTML
+<!-- Data-Binding -->
+{{ wine.name }}
+```
+
+### c)
+Der Name des Weines soll in GROßBUCHSTABEN ausgegeben werden. Bitte zeigen Sie, wie dies im HTML- Template definiert werden kann. Bitte benennen Sie das eingesetzte Konstrukt (2 Punkte). 
+
+`wine.component.html`:
+```HTML
+<!-- Pipe -->
+{{ wine.name || uppercase }}
+```
+
+### d)
+In der nachfolgenden Komponente möchten Sie sich auf das Ereignis “click” einer Schaltfläche binden. Bei einem Klick auf die Schaltfläche soll die Methode “onClick” aufgerufen werden, 	die 	in 	der 	Komponentenklasse 	definiert 	ist. Vervollständigen Sie bitte das Code-Fragment im Template entsprechend und benennen Sie das eingesetzte Konstrukt (2 Punkte).
+
+`wine.component.ts`:
+```TypeScript
+@Component({
+  selector: 'app-wine', 
+  template: './wine.component.html' 
+}) 
+export class WineComponent { 
+  public buttonColor = 'limegreen'; 
+
+  public onClick(): void { /* */ } 
+} 
+```
+
+`wine.component.html`:
+```HTML
+<!-- Event-Binding -->
+<button (click)=”onClick()”>Click</button> 
+```
+
+### e)
+Weiterhin möchten Sie die Textfarbe des Buttons (CSS-Eigenschaft “color”) über das in der Komponente definierte Feld “buttonColor” setzen. Vervollständigen Sie bitte das Code-Fragment im Template entsprechend und benennen Sie das eingesetzte Konstrukt (2 Punkte). 
+
+`wine.component.html`:
+
+```HTML
+<!-- Property-Binding -->
+<button [style.color]="buttonColor" (click)=”onClick()”>Click</button> 
+```
+
+## Aufgabe 6
+Angular & Dependency Injection (10 Punkte)
+
+### a) Directives
+a)	Nachstehend sehen Sie ein benutzerdefiniertes Attribut “appColor” auf einem DOM-Knoten. Um welches Angular- Konstrukt handelt es sich dabei? Nennen Sie zwei Aspekte, in denen sich dieses von einer Komponente unterscheidet (2,5 Punkte). 
+
+```HTML
+<app-wine appColor=”blue”></app-wine>
+```
+
+=> Directive!
+* Hat kein eigenes Template oder Stylesheet
+* Ist kein eigenes DOM-Element, sondern ändert das bestehende.
+
+### b) c) d)
+In Ihrer Anwendung möchten Sie den Mehrwertsteuersatz über die Dependency Injection verwalten, sodass dieser bei einer möglichen Änderung zentral geändert werden kann. Zeigen Sie nachstehend:
+
+* Mit welchem Hilfskonstrukt ein nicht-klassenbasierter Wert dem DI-Container bekannt gemacht werden kann (2 Punkte). 
+* Wie der Wert in den DI-Container eingehängt wird (Wein wird derzeit mit 19% MwSt. besteuert, 2 Punkte).
+* Wie der Wert über den DI-Container angefordert werden kann. (direkt im AppModule, 2 Punkte).
+
+Mit Injection Tokens!
+
+`irgendwo.ts`
+```TypeScript
+export const VAT = new InjectionToken<number>('VAT')
+```
+
+`app.module.ts`
+```TypeScript
+import { VAT } from 'PFAD_ZU/irgendwo.ts';
+
+@NgModule({ 
+  providers: [{
+    provider: VAT, 
+    useValue: 0.19 
+  }] 
+}) 
+export class AppModule { 
+  constructor (@Inject(VAT) private readonly vat: number ) { 
+    console.log( this.vat ); 
+  } 
+} 
+```
+
+### e)
+Nennen Sie drei Gründe, warum man Dependency 
+Injection in Anwendungen einsetzen sollte (1,5 Punkte). 
+
+* Low Coupling
+* High Cohesion
+* Wiederverwendbarkeit bzw. Modularität
+
+### Aufgabe 7
+Angular & Web-APIs (17 Punkte) 
+
+Ihre RESTful-Webschnittstelle zur Verwaltung von Wein- datensätzen haben Sie auf einem Webserver veröffentlicht. Darauf möchten Sie nun aus Ihrer Angular-Anwendung heraus zugreifen. 
+
+### a)
+Aus der Vorlesung kennen Sie ein Anuglar-Architektur- mittel, das die Implementierung fachlicher, nicht-UI-bezogener Softwarebausteine erlaubt und sich somit zur Kapselung des Datenzugriffs eignet. Wie nennt man dieses Konstrukt (0,5 Punkte)? 
+
+=> Service
+
+### b)
+Implementieren Sie nun die Datenzugriffsschicht. Fügen Sie Methoden hinzu, um die nachfolgenden Operationen abzubilden. Geben Sie jeweils die Typen der Parameter und der Rückgabe an. Verwenden Sie zum Zugriff auf die Webschnittstelle den HttpClient und fordern Sie diesen über die Dependency Injection an (16 Punkte).
+Die jeweiligen URLs, an die Sie die Anfragen senden müssen, sind nachstehend wiedergegeben. Wählen Sie passende HTTP-Verben zum Zugriff auf die Ressourcen. Import-Direktiven sowie die Behandlung von Fehlern können Sie vernachlässigen.
+
+1.  Abrufen aller Weine https://wine.invalid/wines
+2.  Abrufen eines einzelnen Weines über seinen eindeutigen Bezeichner https://wine.invalid/wines/ID 
+3.  Hinzufügen eines Weines https://wine.invalid/wines
+4.  Bearbeiten eines Weines https://wine.invalid/wines/ID
+5.  Löschen eines Weines https://wine.invalid/wines/ID
+
+
+
