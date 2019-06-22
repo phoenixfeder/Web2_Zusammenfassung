@@ -26,7 +26,11 @@ export class DeathlistService {
     }
 
     delete(id: number): void {
-        this.deathList = this.deathList.filter(item => item.id === id);
+        const found = this.deathList.find(item => item.id === id);
+        if (!found) {
+            throw new NotFoundException();
+        }
+        this.deathList = this.deathList.filter(item => item.id !== id);
     }
 
     update(id: number, isDeath: boolean): DeathListItem {
