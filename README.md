@@ -21,4 +21,4 @@ npm i -g @angular/cli
 * [Angular](./content/ANGULAR.md)
 * [Todo-App](./todo-app/)
 * [Klausur-2018](./klausur2018/)
-* [Death-List-App](./deathlist)
+* [Death-List-App](./death-list)
