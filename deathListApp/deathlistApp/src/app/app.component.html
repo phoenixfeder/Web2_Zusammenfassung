@@ -1,0 +1,19 @@
+<div>
+  <h1>Bindings</h1>
+  {{'hallo'}}<br />
+  {{3}}<br />
+  {{17+4}}<br />
+  Variablen: {{value}}<br />
+  Kein HTML oder alert('boom') in mustache
+</div>
+<hr />
+<div>
+  <h1>Property Bindings</h1>
+  <p [style.backgroundColor]="color">Färben kann man auch</p>
+</div>
+<hr />
+<div>
+  <h1>Event Bindings</h1>
+  <button (click)="onClick($event)">Click mich</button>
+</div>
+<hr />

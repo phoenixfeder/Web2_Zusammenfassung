@@ -1,0 +1,15 @@
+div {
+    width: 500px;
+    margin: 0 auto;
+    color: gray
+}
+
+h1 {
+    border-bottom: 1px dashed darkred;
+    font-weight: normal;
+    color: darkred;
+}
+
+hr {
+    border: 1px dashed lightgray;
+}
